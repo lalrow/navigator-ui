@@ -1,0 +1,45 @@
+<div class="chat-container">
+  <h1>Navigator AI Chat</h1>
+
+  <div class="api-key-section" *ngIf="!apiKey">
+    <label for="apiKey">OpenAI API Key (optional):</label>
+    <input
+      id="apiKey"
+      type="password"
+      [(ngModel)]="apiKey"
+      placeholder="Enter your OpenAI API key"
+      class="api-key-input"
+    />
+  </div>
+
+  <div class="messages-container" *ngIf="apiKey">
+    <div *ngFor="let message of messages"
+         [class]="'message message-' + message.role">
+      <div class="message-role">{{ message.role }}</div>
+      <div class="message-content">{{ message.content }}</div>
+    </div>
+
+    <div *ngIf="currentResponse" class="message message-assistant streaming">
+      <div class="message-role">assistant</div>
+      <div class="message-content">{{ currentResponse }}</div>
+    </div>
+  </div>
+
+  <div class="input-section" *ngIf="apiKey">
+    <input
+      type="text"
+      [(ngModel)]="userMessage"
+      (keyup.enter)="sendMessage()"
+      placeholder="Type your message..."
+      [disabled]="isLoading"
+      class="message-input"
+    />
+    <button
+      (click)="sendMessage()"
+      [disabled]="isLoading || !userMessage.trim()"
+      class="send-button"
+    >
+      {{ isLoading ? 'Sending...' : 'Send' }}
+    </button>
+  </div>
+</div>
