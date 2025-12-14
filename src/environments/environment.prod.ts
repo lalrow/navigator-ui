@@ -1,6 +1,6 @@
 export const environment = {
     production: true,
-    apiUrl: 'https://vishalmysore-navigator-server.hf.space',
+    apiUrl: 'https://lalrow-navigator-server.hf.space',
     apiEndpoints: {
         chat: '/api/chat',
         ragChat: '/api/rag-chat',
@@ -8,7 +8,6 @@ export const environment = {
         evaluate: '/api/evaluate',
         health: '/api/health',
         conversations: '/api/conversations',
-
         ragStatus: '/api/rag-status',
         documents: '/api/documents',
         uploadDocument: '/api/documents/upload'

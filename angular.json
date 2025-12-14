@@ -110,7 +110,7 @@
           "builder": "angular-cli-ghpages:deploy",
           "options": {
             "baseHref": "/navigator-ui/",
-            "repo": "https://github.com/vishalmysore/navigator-ui.git",
+            "repo": "https://github.com/lalrow/navigator-ui.git",
             "buildTarget": "navigator-angular:build:production"
           }
         }
