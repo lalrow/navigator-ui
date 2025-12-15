@@ -17,9 +17,16 @@ export class QuizService {
      * Evaluate a student's answer using the diagnostic agent
      */
     evaluateAnswer(request: EvaluateRequest): Observable<EvaluationResponse> {
+        // Convert camelCase to snake_case for Python backend
+        const backendRequest = {
+            question: request.question,
+            answer: request.answer,
+            context: request.context || '',
+            api_key: request.apiKey  // Convert apiKey to api_key
+        };
         return this.apiService.post<EvaluationResponse>(
             environment.apiEndpoints.evaluate,
-            request
+            backendRequest
         );
     }
 
